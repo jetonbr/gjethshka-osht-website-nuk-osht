@@ -1,0 +1,764 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.float-left {
+  float: left;
+}
+
+.float-right {
+  float: right;
+}
+
+.ui.card {
+  width: 500px;
+  margin: 1rem auto
+
+}
+
+iframe {
+  height: 281px;
+}
+
+/* a {
+
+} */
+
+.ui.comments {
+  margin: auto;
+  text-align: left;
+  max-width: 500px;
+}
+
+.text-align-center {
+  text-align: center;
+}
+div.ui.card.feed>div.extra.content {
+  display:none;
+}
+/* .text-post-body {
+  padding: 5px 10px;
+  color: black;
+} */
+/* #tabradius{
+  background: none #fff;
+  color: rgba(0,0,0,.95);
+  border-top-width: 1px;
+  border-color: #d4d4d5;
+  font-weight: 700;
+  margin-bottom: -1px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  border-radius: 7.285714rem 0.285714rem 8rem 2rem!important;
+} */
+
+/* #logform{
+  font-family: inherit;
+  font-weight: bold;
+} */
+
+#check-agb{
+  display: flex;
+  font-weight: bold;
+}
+
+.agbtext{
+  position: relative;
+  left: 15px;
+}
+.agbmodbody{
+  margin-top: 94px !important;
+  margin-left: 455px !important;
+}
+.gendercon{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.herrbtn{
+  background-color: #374a72 !important;
+  color: #fff !important;
+  width: 125px !important;
+}
+
+.fraubtn{
+  background-color: #88667a !important;
+  color: #fff !important;
+  width: 125px !important;
+}
+
+.breadcrumb{
+    display: flex;
+    align-items: center;
+    position: relative;
+    left: 72%;
+    text-decoration: underline;
+}
+
+.dv{
+  color: #000;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.license{
+  font-weight: bold;
+}
+
+/* #agbbtn{
+    background-color: #fff;
+    color: #6c66b8;
+    padding: 0;
+    text-decoration: underline;
+} */
+
+.agbmodal{
+  margin-top: 0 !important;
+  display: flex;
+  justify-content: center;
+  height: 80vh;
+  left: 24%;
+}
+
+.navtext{
+  display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    right: 43%;
+    font-size: 16px;
+}
+
+.menut{
+  font-weight: bold;
+}
+
+    .textcon{
+      border-radius: 3px !important;
+    }
+
+/* .cd1{
+  width: 400px;
+} */
+.ccwrap{
+  width: 350px !important;
+}
+.ccimg{
+  max-width: 330px !important; 
+  padding: 10px !important;
+  margin: 10px !important;
+}
+
+.shopContainer{
+  padding: 20px;
+  border-radius: 5px;
+}
+
+
+/* .expcard{
+  width: 42% !important;
+  margin: 32px !important;
+} */
+/* .expcard:hover{
+  transform: scale(1.03);
+  box-shadow: 30px 24px 78px 11px rgba(0,0,0,0.1),31px 34px 15px -3px rgba(0,0,0,0.1) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+.expcard2{
+  width: 42% !important;
+  margin: 32px !important;
+}
+
+.expcard2:hover{
+  transform: scale(1.03);
+  box-shadow: 30px 24px 78px 11px rgba(0,0,0,0.1),31px 34px 15px -3px rgba(0,0,0,0.1) !important;
+  transition: all 0.2s ease-in-out !important;
+} */
+
+/* .cardwrapper{
+  width: 50% !important;
+  margin: 30px 0 0 490px !important;
+}
+*/
+/* .payscard{
+box-shadow: 11px 10px 15px -3px rgba(0,0,0,0.1) !important;
+} */
+
+/*------------------------->  HR Line DESiGN CSS SECTION  <-------------------------*/
+
+
+.liner {
+  display: flex;
+  align-items: flex-start;
+  text-align: left;
+}
+.liner:after {
+  content: "";
+  flex-grow: 1;
+  height: 1px;
+  background: #2b1f94;
+  min-width: 20px;
+  margin: auto;
+}
+.liner:after {
+  margin-left: 20px;
+}
+/* hr {
+  display: block;
+  margin: 50px 0 -15px;
+  width: 100%;
+  height: 1px;
+  border: 0;
+  background-color: none;
+}
+hr + h2 {
+  display: inline-block;
+  position: relative;
+  left: 50%;
+  margin: 0;
+  padding: 5px 10px;
+  border: 1px solid #453986;
+  transform: translateX(-50%);
+  color: #453986;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-align: center;
+  text-transform: uppercase;
+  background-color: #fff;
+}
+hr + h2::first-letter {
+  margin-left: 0.32em;
+} */
+
+/* Alternative transform: translate */ 
+
+/* hr + h2 {
+  border-width: 1px 0;
+}
+hr + h2::before, hr + h2::after {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: #453986;
+  content: "";
+}
+hr + h2::before {
+  left: 0;
+}
+hr + h2::after {
+  right: 0;
+} */
+
+article {
+  margin: 20px 10px;
+  color: #2b1f94;
+}
+
+article a{
+  color: red !important;
+}
+
+article a:hover{
+  color: red !important;
+}
+
+/* @media (min-width: 30em) {
+  article {
+    margin: 40px 0;
+    padding: 0 10px;
+    width: 30em;
+  }
+} */
+
+/* 
+
+.textln{
+  color: red;
+}
+
+a {
+  color: #f52e62;
+  text-decoration: none;
+}
+a:focus, a:hover {
+  text-decoration: underline;
+}
+
+code {
+  font-size: 1.1em;
+}
+
+h1 {
+  margin: 0 0 1em;
+  color: #44388b;
+}
+
+p {
+  padding: 0 10px;
+}
+p:empty {
+  display: none;
+} */
+       /*------------------------->  PRICING PAGE CSS SECTION  <-------------------------*/
+
+
+
+.payswrapper{
+  display: flex;
+  width: 80% !important;
+  margin: 9rem !important;
+}
+
+.payscard{
+  width: 47% !important;
+  margin: 10px !important;
+}
+
+.payscard:hover{
+  transform: scale(1.03);
+  box-shadow: 30px 24px 78px 11px rgba(0,0,0,0.1),31px 34px 15px -3px rgba(0,0,0,0.1) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+
+.buylink{
+  color: #fff !important;
+  text-decoration: none !important;
+}
+.payc{
+  font-family: 'Merriweather Sans', sans-serif;
+}
+
+.cardwrapper{
+  width: 50% !important;
+  margin: 30px 0 0 490px !important;
+}
+.nmcard{
+  margin: 10px !important;
+  width: 42% !important;
+  margin: 32px !important;
+}
+.nmcard:hover{
+  transform: scale(1.03);
+  box-shadow: 30px 24px 78px 11px rgba(0,0,0,0.1),31px 34px 15px -3px rgba(0,0,0,0.1) !important;
+  transition: all 0.2s ease-in-out !important;
+}
+/* .PayCardConatiner{
+
+} */
+.vscardwrapp{
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: space-between !important;
+}
+.visac{
+  width: 130px;
+}
+
+.masterc{
+  width: 130px;
+}
+
+.paypalc{
+  width: 130px;
+
+}
+
+.sofortc{
+  width: 130px;
+}
+
+.klarnac{
+  width: 130px;
+ }
+
+ .giropay{
+   width: 130px;
+ }
+
+.paysafec{
+  width: 130px;
+}
+
+.paydirektc{
+  width: 90px;
+}
+
+.vscard{
+  width: 100%;
+  display: flex;
+} 
+
+.heartrate{
+  position: relative !important;
+  left: 60% !important;
+  bottom: 30px !important;
+}
+
+.card-head{
+  padding: 10px 0 10px;
+}
+
+/* .profilepct{
+  border: 1px solid red;
+  border-radius: 85px;
+} */
+
+.forminpwrap{
+  padding: 10px;
+}
+.inpwrap{
+  padding: 10px;
+}
+
+.agbbody{
+  line-height: 1.4 !important;
+}
+
+/* .actionbtn{
+  position: absolute;
+  bottom: 0;
+  right: 0;
+} */
+
+.profile-con{
+  border-radius: 50%;
+}
+
+.profilimg{
+  border-radius: 50%;
+}
+
+.UserCon{
+  width: 60% !important;
+  margin-top: 60px !important;
+}
+
+.msgbtnmodalcon{
+  margin: 0 !important;
+  margin-left: 470px !important;  
+}
+
+.profilemodalbtn{
+  margin: 0 !important;
+  margin-left: 470px !important;
+}
+/* ------------------------> RULE TEXT FEED PAGE <--------------------------- */
+
+.rule-text-bd{
+  position: fixed;
+  top: 13%;
+}
+
+
+/*-------------------------> ACCORDION UPDATE CARD PROFILE CSS SECTION  <-------------------------*/
+
+.profiletab{
+  width: 825px !important;
+}
+
+.profile-rating{
+    display: flex;
+    justify-content: center;
+    margin-right: 140px !important;
+}
+
+.userprofbody{
+  width: 250px !important;
+}
+
+/* .profile-btn-modal{
+  background: white;
+  padding: 0;
+  width: 40px;
+
+} */
+.column-wdth{
+  width: 825px !important;
+}
+
+.grid-wdth{
+  width: 825px !important;
+}
+
+.imgframe{
+  margin: 10px !important;
+}
+
+.user-label{
+  font-size: 14px !important;
+}
+
+.divided-content{
+  margin-top: -35px !important;
+} 
+
+.usrgllry{
+  width: 300px;
+}
+
+.gllrybox{
+  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1) !important; 
+}
+/*-------------------------> USERPOX INFO BOX  <-------------------------*/
+
+.textbio{
+  resize: none !important;
+}
+/*-------------------------> CHAT CSS SECTION  <-------------------------*/
+ #chat-ico{
+  margin-left: 16px !important;
+  margin-top: 14px !important;
+ }
+
+/* 
+.accordion-bd{
+  position: fixed !important;
+  top: 13% !important;
+} */
+
+/* 
+
+
+/* .edit-btn{
+
+} */
+/* .userform{
+  display: flex;
+  flex-direction: column !important;
+  width: 400px;
+} */
+/* .profileImg{
+  border: 1px solid red;
+} */
+/* .profimg{
+
+} */
+/* #divider{
+
+}
+/* .hvbtn:hover{
+  background-color: red !important;
+  border-radius: 5px;
+  color: #fff !important;
+} */
+
+/* #loutbtn{
+
+} */
+
+/* .card {
+  margin-bottom: 2rem;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+@keyframes pulse {
+  0% {
+      background-color: rgba(165, 165, 165, 0.1)
+  }
+  50% {
+      background-color: rgba(165, 165, 165, 0.3)
+  }
+  100% {
+      background-color: rgba(165, 165, 165, 0.1)
+  }
+}
+
+.customer-badge {
+  border-radius: 2px;
+  padding: .25em .5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .3px;
+}
+
+.customer-badge.status-qualified {
+  background-color: #C8E6C9;
+  color: #256029;
+}
+
+.customer-badge.status-unqualified {
+  background-color: #FFCDD2;
+  color: #C63737;
+}
+
+.customer-badge.status-negotiation {
+  background-color: #FEEDAF;
+  color: #8A5340;
+}
+
+.customer-badge.status-new {
+  background-color: #B3E5FC;
+  color: #23547B;
+}
+
+.customer-badge.status-renewal {
+  background-color: #ECCFFF;
+  color: #694382;
+}
+
+.customer-badge.status-proposal {
+  background-color: #FFD8B2;
+  color: #805B36;
+}
+
+.product-badge {
+  border-radius: 2px;
+  padding: .25em .5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .3px;
+}
+
+.product-badge.status-instock {
+  background: #C8E6C9;
+  color: #256029;
+}
+
+.product-badge.status-outofstock {
+  background: #FFCDD2;
+  color: #C63737;
+}
+
+.product-badge.status-lowstock {
+  background: #FEEDAF;
+  color: #8A5340;
+}
+
+.order-badge {
+  border-radius: 2px;
+  padding: .25em .5rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: .3px;
+}
+
+.order-badge.order-delivered {
+  background: #C8E6C9;
+  color: #256029;
+}
+
+.order-badge.order-cancelled {
+  background: #FFCDD2;
+  color: #C63737;
+}
+
+.order-badge.order-pending {
+  background: #FEEDAF;
+  color: #8A5340;
+}
+
+.order-badge.order-returned {
+  background: #ECCFFF;
+  color: #694382;
+}
+
+.image-text {
+  vertical-align: middle;
+  margin-left: .5rem;
+}
+
+.p-multiselect-representative-option {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.p-multiselect-representative-option img {
+  vertical-align: middle;
+  width: 24px;
+}
+
+.p-multiselect-representative-option span {
+  margin-top: .125rem;
+}
+
+.p-column-filter {
+  width: 100%;
+}
+
+.country-item {
+  display: flex;
+  align-items: center;
+}
+
+.country-item img.flag {
+  width: 18px;
+  margin-right: .5rem;
+}
+
+.flag {
+  vertical-align: middle;
+}
+
+span.flag {
+  width:44px;
+  height:30px;
+  display:inline-block;
+}
+
+img.flag {
+  width:30px
+} */
+
+/* @media screen and (max-width: 1830px){
+
+    .form-input-field{
+        width: 100%;
+    }
+    .gendercon{
+      flex-direction: column !important;
+      width: 100%;
+    }
+    .btn-con{
+      width: 100% !important;
+    }
+
+}
+
+@media screen and (max-width: 760px){
+    .regform{
+    }
+
+}
+ */
+
