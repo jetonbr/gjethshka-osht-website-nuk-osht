@@ -10,7 +10,8 @@ import LoginPage from "./app/LoginPage/LoginPage";
 import Dashboard from './dashboard/Dashboard'
 
 import { AuthContext } from "./UserContext";
-import CustomChatAdded from "./chat/Chat";
+// import CustomChatAdded from "./chat/Chat";
+import Chat from "./chat/Chat";
 
 const DefaultRoutes = () => {
   const value = useContext(AuthContext);
@@ -31,7 +32,7 @@ const DefaultRoutes = () => {
           <Route path="/people/:id" component={ProfilePage} />
           <Route path="/:type/:id" component={PostDetails} />
           <Route path="/profile" component={ProfilePage} />
-          <Route path="/chat" component={CustomChatAdded} />
+          <Route path="/chat" component={Chat} />
         </Switch>
       )}
       <Footer />

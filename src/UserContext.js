@@ -4,7 +4,8 @@ export const AuthContext = React.createContext(null);
 
 const UserProvider = ({children}) => {
   const [user, setUser] = useState({
-    name: "",
+    email: "",
+    password: "",
   });
   const [auth, setAuth] = useState("");
   const [loggedIn, setLoggedIn] = useState(false);
@@ -28,6 +29,7 @@ const UserProvider = ({children}) => {
     localStorage.setItem("eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6I…zNzB9.5ZQ8QjzPux5PzjVNqGAeXG1Ts6xHUdta0YPXOvAGv8Q", token);
     localStorage.setItem("user", JSON.stringify(user));
   };
+
 
   const removeAuth = () => {
     setAuth("");

@@ -164,10 +164,6 @@ class ProfilePage extends Component {
                                 <Card.Content>
                                     <ModalExampleScrollingContent />
                                     <ProfileFormCard />
-                                    {/* <ProfileFormCard /> */}
-                                    {/* <StickyExampleOversized /> */}
-                                    {/* <TabExampleVerticalTabular /> */}
-                                    {/* <ProfileHeader /> */}
                                     {/* <ContainerExampleAlignment /> */}
                                     {/* <Card.Header className="float-left" size="large">{this.state.user.name}</Card.Header>
                                     {(this.props.match.path === '/profile') ?

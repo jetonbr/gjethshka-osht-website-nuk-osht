@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { getData, deleteData, postData } from '../services/DataService'
 import TimeAgo from 'react-timeago'
-
-// import _ from 'lodash';
+import _ from 'lodash';
 
 
 class PostDetails extends Component {
@@ -137,7 +136,7 @@ class PostDetails extends Component {
                         {/* <button className="ui icon primary left labeled button" onClick={this.sendComment}>
                                 <i aria-hidden="true" className="edit icon"></i>Add Comment</button> */}
                         {/* next two lines were incoming change and out of the form  */}
-                        {(this.state.post.userId == sessionStorage.getItem('userId')) ?
+                        {(this.state.post.userId === sessionStorage.getItem('userId')) ?
                         <button className="ui icon primary left labeled button" onClick={this.deletePost}>
                             <i aria-hidden="true" className="edit icon"></i>Delete Post</button> :
                             <React.Fragment /> }
