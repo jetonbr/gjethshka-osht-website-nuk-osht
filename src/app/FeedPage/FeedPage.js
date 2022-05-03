@@ -12,6 +12,7 @@ import MenuExampleHeaderVertical from "./FeedRuleList";
 import SendIcon from '@mui/icons-material/Send';
 import { Link } from "react-router-dom";
 
+
 class FeedPage extends Component {
   constructor(props) {
     super(props);
@@ -213,11 +214,12 @@ class FeedPage extends Component {
         <CardExampleCard />
         <CardExampleCard />
         <CardExampleCard />
+        
         {/* <CardExampleCard />
                         <button onClick={() =>}>
                             Icon
                         </button> */}
-        <Link
+         <Link
           style={{
             position: "fixed",
             bottom: 20,
@@ -230,9 +232,9 @@ class FeedPage extends Component {
             boxShadow: "6px 5px 63px 23px rgba(0,0,0,0.1)"
           }}
           to={"/chat"}
-        >
+        > *
           <SendIcon id='chat-ico'/>
-        </Link>
+        </Link> *
       </React.Fragment>
     );
   }

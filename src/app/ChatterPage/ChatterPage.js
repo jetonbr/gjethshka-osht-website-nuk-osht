@@ -153,11 +153,11 @@ class MessageList extends React.Component {
 class MessageItem extends React.Component {
 	render() {
 		/* message position formatting - right if I'm the author */
-		let messagePosition = (( this.props.owner == this.props.sender ) ? 'chatApp__convMessageItem--right' : 'chatApp__convMessageItem--left');
+		let messagePosition = (( this.props.owner == this.props.sender ) ? 'chaterApp__convMessageItem--right' : 'chaterApp__convMessageItem--left');
 		return (
-			<div className={"chatApp__convMessageItem " + messagePosition + " clearfix"}>
+			<div className={"chaterApp__convMessageItem " + messagePosition + " clearfix"}>
 				<img src={this.props.senderAvatar} alt={this.props.sender} className="chatApp__convMessageAvatar" />
-				<div className="chatApp__convMessageValue" dangerouslySetInnerHTML={{__html: this.props.message}}></div>
+				<div className="chaterApp__convMessageValue" dangerouslySetInnerHTML={{__html: this.props.message}}></div>
 			</div>
 		);
 	}
@@ -194,7 +194,7 @@ class ChatBox extends React.Component {
 					owner={this.props.owner}
 					messages={this.props.messages}
 				/>
-				<div className={"chatApp__convSendMessage clearfix"}>
+				<div className={"chaterApp__convSendMessage clearfix"}>
 					<TypingIndicator
 						owner={this.props.owner}
 						isTyping={this.props.isTyping}
@@ -218,7 +218,7 @@ class ChatBox extends React.Component {
 
 /* ========== */
 /* ChatRoom component - composed of multiple ChatBoxes */
-class ChatRoom extends React.Component {
+class ChaterRoom extends React.Component {
 	constructor(props, context) {
 		super(props, context);
 		this.state = {
@@ -330,7 +330,100 @@ class ChatRoom extends React.Component {
 
 /* render the chatroom */
 // setTimeout(() => {
-// 	ReactDOM.render(<ChatRoom />, document.getElementById("chatApp"));
+// 	document.getElementById("chaterApp"));	ReactDOM.render(<ChaterRoom />, document.getElementById("chaterApp"));
 // }, 400);
 
-export default ChatRoom;
+export default ChaterRoom;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// import React, { useEffect, useState } from "react"
+// import { StreamChat } from "stream-chat"
+// import {
+//   Chat,
+//   Channel,
+//   ChannelHeader,
+//   ChannelList,
+//   LoadingIndicator,
+//   MessageInput,
+//   MessageList,
+//   Thread,
+//   Window,
+//   useChannelStateContext,
+// } from "stream-chat-react"
+
+// import "stream-chat-react/dist/css/index.css"
+
+// const userToken =
+//   "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1c2VyX2lkIjoibGl0dGxlLXdvb2QtOSJ9.CqE75Jdcw_Gv2CySKWsgkGd2ECVe7dR3_Knxap5mlZg"
+
+// const filters = { type: "messaging", members: { $in: ["little-wood-9"] } }
+// // TS tweak No1
+// const sort = { last_message_at: -1 }
+
+// const CustomChatAdded = () => {
+//   // TS tweak No2
+//   const [chatClient, setChatClient] = useState(null)
+
+//   useEffect(() => {
+//     const initChat = async () => {
+//       const client = StreamChat.getInstance("t442dfkucxcj")
+
+//       await client.connectUser(
+//         {
+//           id: "little-wood-9",
+//           name: "little-wood-9",
+//           image: "https://getstream.io/random_png/?id=little-wood-9&name=little-wood-9",
+//         },
+//         userToken
+//       )
+
+//       setChatClient(client)
+//     }
+
+//     initChat()
+//   }, [])
+
+//   if (!chatClient) {
+//     return <LoadingIndicator />
+//   }
+
+//   return (
+//     <Chat client={chatClient} theme="messaging light">
+//       <ChannelList filters={filters} sort={sort} />
+//       <Channel>
+//         <Window>
+//           <ChannelHeader />
+//           <MessageList />
+//           <MessageInput />
+//         </Window>
+//         <Thread />
+//       </Channel>
+//     </Chat>
+//   )
+// }
+
+// export default CustomChatAdded;
+

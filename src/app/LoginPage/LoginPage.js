@@ -5,11 +5,9 @@ import { Grid, Form, Button, Tab } from "semantic-ui-react";
 import CheckboxExampleToggle from "./CheckAgb";
 import DropdownExampleSearchSelection from "./CountryDropdown";
 import ButtonExampleConditionals from "./Gender";
-import {AuthContext} from '../../UserContext';
 import axios from "axios";  
 import { loginService } from "../services/auth";
-
- 
+import {AuthContext} from "../../store/AuthProvider";
 
 const LoginPage = () => {
   const value = useContext(AuthContext);
@@ -43,32 +41,23 @@ const LoginPage = () => {
     let data = {
       email,
       password
-    }
+    } 
     loginService(data)
       .then(res => {
         res.data
         const token = res.data['token'] 
-        console.log(res.data);
-        if (token) {
-            value.addAuth("token", {user: {name: res.data['user']['email']}})
-        } else {
-          alert('Something went wrong while login into your account')
-        }
-        // console.log("res => ", res.data['user']['email']);
-        
-        
+        console.log(`res.data of login => `, res);
+        value.setAuth(res.data);
       })
       .catch(e => {
         console.log('e => ', e);
+        // TODO: ne rast se nuk ka funksionu e qet nje messazh pse nuk o tu funksionu requesti
       })
-    // axios.post('https://back.tolltref.com/auth/login', {
-    //   email: email,
-    //   password: password
-    // }).then(res => {
-    //   console.log(`res -> `, res)
-    // })
   }
 
+  const onRegister = () => {
+
+  }
 
   const loginRender = () => {
     return (
@@ -164,11 +153,6 @@ const LoginPage = () => {
   //   );
   // };
 
-  // const clearState = () => {
-    
-  // };
-
-  
   return (
     <Grid id="login-page">
       <Grid.Row style={{ marginTop: "50px" }}>

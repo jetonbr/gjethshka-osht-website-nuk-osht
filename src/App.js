@@ -1,18 +1,17 @@
-import React, { useContext, useEffect } from "react";
-import DefaultRoutes from "./DefaultRoutes";
-import UserProvider from "./UserContext";
-import "./app/App.css";
+import React from "react";
 import { BrowserRouter } from "react-router-dom";
+import DefaultRoutes from "./routes/DefaultRoutes";
+import AuthProvider from "./store/AuthProvider";
+import "./app/App.css";
 
 
 const App = () => {
-
   return (
-    <UserProvider>
+    <AuthProvider>
       <BrowserRouter>
         <DefaultRoutes/>
       </BrowserRouter>
-    </UserProvider>
+    </AuthProvider>
   );
 };
 

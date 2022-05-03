@@ -17,3 +17,6 @@ export const registerService = (data) => {
         return e;
     }
 }
+
+
+
