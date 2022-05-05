@@ -75,12 +75,12 @@ const ProfileFormCard = () => {
                     <div className='col-md-6'>
                         <div className='profile-head'>
                             <p className='profile-rating mt-3 mb-5'><strong>Rated: </strong><span>1/10</span></p>
-                            <div class="container">
+                            <div className="container">
                                 <TabExampleSecondaryPointing />
                                 {/* <ul className='nav nav-tabs' role='tablist'>
                                     <li className='nav-item'><a className='nav-link active' id='profile-tab' data-toggle='tab' href="#profile" role='tab'>Profile</a></li>
                                     <li className='nav-item'><a className='nav-link' id='photos-tab' data-toggle='tab' href="#photos" role='tab'>Photos</a></li>
-                                </ul> */}
+                                </ul> */} 
                             </div>
 
                         </div>

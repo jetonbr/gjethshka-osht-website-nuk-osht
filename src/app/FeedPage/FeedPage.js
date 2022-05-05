@@ -1,17 +1,15 @@
 import React, { Component } from "react";
 // import FeedList from "./FeedList";
-import { Button, Grid } from "semantic-ui-react";
+import { Button, Grid, Container } from "semantic-ui-react";
 import { postData } from "../services/DataService";
-import '../App.css';
+import "../App.css";
 import CardExampleCard from "./FeedContent";
 import ContainerExampleTitle from "./Feedtitle";
-import MenuExampleHeaderVertical from "./FeedRuleList";
 // import FeedChatButton from "./FeedChatButton";
 // import ButtonExampleIcon from "./FeedChatButton";
 // import StickyExampleOffset from "./FeedChatButton";
-import SendIcon from '@mui/icons-material/Send';
+import SendIcon from "@mui/icons-material/Send";
 import { Link } from "react-router-dom";
-
 
 class FeedPage extends Component {
   constructor(props) {
@@ -196,30 +194,43 @@ class FeedPage extends Component {
       <React.Fragment>
         {/* {this.addButton()} */}
         <Grid>
-          <Grid.Row>
+          <Grid.Row className="mod-row">
             <Grid.Column width="four"></Grid.Column>
             <Grid.Column width="eight">
               <ContainerExampleTitle />
               {/* <FeedList reRender={this.state.reRender} /> */}
             </Grid.Column>
-            <Grid.Column width="four">
-              <MenuExampleHeaderVertical />
-            </Grid.Column>
+            <Grid.Column width="four"></Grid.Column>
           </Grid.Row>
         </Grid>
+        <Container>
+          <Grid className='gr-down'>
+            <Grid.Row className='s-down' columns={2}>
+              {/* <Grid.Row columns={1} > */}
+              <CardExampleCard />
+              <CardExampleCard />
+              <CardExampleCard />
+              <CardExampleCard />
+              <CardExampleCard />
+              <CardExampleCard />
+              <CardExampleCard />
+              <CardExampleCard />
+              <CardExampleCard />
+              <CardExampleCard />
+              <CardExampleCard />
+              <CardExampleCard />
+              {/* </Grid.Row> */}
+            </Grid.Row>
+          </Grid>
+        </Container>
         {/* <ModalText open={this.state.modal.open.text} onClose={this.close} handleInput={this.handleInput} sendPost={this.sendTextPost} error={this.state.errorMessage} />
                 <ModalImage open={this.state.modal.open.image} onClose={this.close} handleInput={this.handleInput} sendPost={this.sendImagePost} error={this.state.errorMessage} />
                 <ModalVideo open={this.state.modal.open.video} onClose={this.close} handleInput={this.handleInput} sendPost={this.sendVideoPost} error={this.state.errorMessage} /> */}
-        <CardExampleCard />
-        <CardExampleCard />
-        <CardExampleCard />
-        <CardExampleCard />
-        
         {/* <CardExampleCard />
                         <button onClick={() =>}>
                             Icon
                         </button> */}
-         <Link
+        <Link
           style={{
             position: "fixed",
             bottom: 20,
@@ -227,14 +238,17 @@ class FeedPage extends Component {
             right: 20,
             width: 50,
             height: 50,
-            backgroundColor: '#AFDADA',
+            backgroundColor: "#AFDADA",
             color: "white",
-            boxShadow: "6px 5px 63px 23px rgba(0,0,0,0.1)"
+            boxShadow: "6px 5px 63px 23px rgba(0,0,0,0.1)",
           }}
           to={"/chat"}
-        > *
-          <SendIcon id='chat-ico'/>
-        </Link> *
+        >
+          {" "}
+          *
+          <SendIcon id="chat-ico" />
+        </Link>{" "}
+        *
       </React.Fragment>
     );
   }

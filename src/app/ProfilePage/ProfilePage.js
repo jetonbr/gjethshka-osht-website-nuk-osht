@@ -1,171 +1,175 @@
-import React, { Component } from 'react';
-import { Card, Grid, Button, Image } from 'semantic-ui-react'
+import React, { Component } from "react";
+import { Card, Grid, Button, Image } from "semantic-ui-react";
 // import ContainerExampleContainer from '../PeoplePage/PeopleContainer';
-import { getData, postData } from '../services/DataService'
-import ModalEdit from './ModalEdit'
-import ContainerExampleProfile from './ProfileContainer';
-import ProfileFormCard from './ProfileFormCard';
-import ModalExampleScrollingContent from './ProfileInp';
-
+import { getData, postData } from "../services/DataService";
+import ModalEdit from "./ModalEdit";
+import ContainerExampleProfile from "./ProfileContainer";
+import ProfileFormCard from "./ProfileFormCard";
+import ModalExampleScrollingContent from "./ProfileInp";
 
 class ProfilePage extends Component {
-    constructor(props) {
-        super(props);
-        this.userEdit = {}  // using state as less as possible
-        this.state = {
-            file: null,
-            nameLength: 0,
-            modal: {
-                open: false,
-                size: 'small'
-            },
-            user: {},
-        };
+  constructor(props) {
+    super(props);
+    this.userEdit = {}; // using state as less as possible
+    this.state = {
+      file: null,
+      nameLength: 0,
+      modal: {
+        open: false,
+        size: "small",
+      },
+      user: {},
+    };
 
-        this.show = this.show.bind(this);
-        this.close = this.close.bind(this);
-        this.handleImageInput = this.handleImageInput.bind(this);
-        this.handleNameInput = this.handleNameInput.bind(this);
-        this.handleInfoInput = this.handleInfoInput.bind(this);
-        this.sendEdit = this.sendEdit.bind(this);
-        this.validateUrl = this.validateUrl.bind(this);
-        this.handleImageUpload = this.handleImageUpload.bind(this);
+    this.show = this.show.bind(this);
+    this.close = this.close.bind(this);
+    this.handleImageInput = this.handleImageInput.bind(this);
+    this.handleNameInput = this.handleNameInput.bind(this);
+    this.handleInfoInput = this.handleInfoInput.bind(this);
+    this.sendEdit = this.sendEdit.bind(this);
+    this.validateUrl = this.validateUrl.bind(this);
+    this.handleImageUpload = this.handleImageUpload.bind(this);
+  }
 
+  show = (size) => () =>
+    this.setState({
+      modal: { size, open: true },
+    });
+  close = () => {
+    this.setState({
+      modal: { show: false },
+      nameLength: 0,
+      errorLength: "",
+      errorUrl: "",
+    });
+    this.userEdit = {};
+  };
+
+  handleNameInput(e) {
+    this.userEdit.name = e.target.value;
+    this.setState({
+      nameLength: this.userEdit.name.length,
+      errorLength: "",
+    });
+  }
+
+  handleImageInput(e) {
+    this.userEdit.avatarUrl = e.target.value;
+    this.setState({ errorUrl: "" });
+  }
+
+  handleInfoInput(e) {
+    this.userEdit.about = e.target.value;
+  }
+
+  handleImageUpload(e) {
+    this.setState({ file: e.target.files[0] });
+  }
+
+  isValidImage(input) {
+    return (
+      input.match(/\.(jpeg|jpg|gif|png)$/) != null &&
+      input.match(/^(http|https):\/\//) != null
+    );
+  }
+
+  validateUrl() {
+    if (this.userEdit.avatarUrl) {
+      if (!this.isValidImage(this.userEdit.avatarUrl)) {
+        this.setState({ errorUrl: "Not valid image URL" });
+        return true;
+      }
     }
+    return false;
+  }
 
-    show = size => () => this.setState({
-        modal: { size, open: true }
-    })
-    close = () => {
-        this.setState({
-            modal: { show: false },
-            nameLength: 0,
-            errorLength: '',
-            errorUrl: ''
-        })
-        this.userEdit = {}
+  async sendEdit() {
+    if (this.validateUrl()) {
+      return;
     }
-
-
-    handleNameInput(e) {
-        this.userEdit.name = e.target.value
-        this.setState({
-            nameLength: this.userEdit.name.length,
-            errorLength: '',
-        })
+    if (this.state.nameLength > 30) {
+      this.setState({ errorLength: "Name shouldn't exceed 30 letters!" });
+      return;
     }
-
-    handleImageInput(e) {
-        this.userEdit.avatarUrl = e.target.value
-        this.setState({ errorUrl: '' })
+    if (this.state.file) {
+      await postData.imageUpload(this.state.file).then((response) => {
+        this.userEdit.avatarUrl = response.data;
+      });
     }
-
-    handleInfoInput(e) {
-        this.userEdit.about = e.target.value
+    const data = this.state.user;
+    data.email = "user@unFriendly";
+    data.AboutShort = "bla";
+    if (this.userEdit.name) {
+      data.name = this.userEdit.name;
     }
-
-    handleImageUpload(e) {
-        this.setState({ file: e.target.files[0] })
-
+    if (this.userEdit.about) {
+      data.about = this.userEdit.about;
     }
-
-    isValidImage(input) {
-        return ((input.match(/\.(jpeg|jpg|gif|png)$/) != null) && (input.match(/^(http|https):\/\//) != null));
+    if (this.userEdit.avatarUrl) {
+      data.avatarUrl = this.userEdit.avatarUrl;
     }
+    postData.editUser(data);
+    this.close();
+  }
 
-    validateUrl() {
-        if (this.userEdit.avatarUrl) {
-            if (!this.isValidImage(this.userEdit.avatarUrl)) {
-                this.setState({ errorUrl: 'Not valid image URL' })
-                return true
-            }
-        }
-        return false;
+  componentDidMount() {
+    this.getInfo(this.props);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.getInfo(nextProps);
+  }
+
+  getInfo(p) {
+    if (p.match.path === "/profile") {
+      getData.getProfile().then((result) => {
+        this.setState({ user: result });
+      });
+    } else {
+      getData.getUser(p.match.params.id).then((result) => {
+        this.setState({ user: result });
+      });
     }
+  }
 
-    async sendEdit() {
-        if (this.validateUrl()) {
-            return
-        }
-        if (this.state.nameLength > 30) {
-            this.setState({ errorLength: "Name shouldn't exceed 30 letters!" })
-            return
-        }
-        if (this.state.file) {
-            await postData.imageUpload(this.state.file).then((response) => {
-                this.userEdit.avatarUrl = response.data;
-            })
-        }
-        const data = this.state.user
-        data.email = 'user@unFriendly'
-        data.AboutShort = 'bla'
-        if (this.userEdit.name) {
-            data.name = this.userEdit.name
-        }
-        if (this.userEdit.about) {
-            data.about = this.userEdit.about
-        }
-        if (this.userEdit.avatarUrl) {
-            data.avatarUrl = this.userEdit.avatarUrl
-        }
-        postData.editUser(data)
-        this.close()
-    }
+  render() {
+    const extra = (
+      <div>
+        <a className="float-left">
+          <Button
+            circular
+            content={this.state.user.postsCount}
+            color="teal"
+            id="addButton"
+            label="post(s)"
+          />
+        </a>
+        <a className="float-right">
+          <Button
+            circular
+            content={this.state.user.commentsCount}
+            color="violet"
+            id="addButton"
+            label="comment(s)"
+          />
+        </a>
+      </div>
+    );
 
-    componentDidMount() {
-        this.getInfo(this.props)
-    }
-
-   
-    componentWillReceiveProps(nextProps) {
-        this.getInfo(nextProps)
-    }
-
-    getInfo(p){
-        if (p.match.path === '/profile') {
-            getData.getProfile()
-                .then(result => {
-                    this.setState({ user: result })
-                })
-        } else {
-            getData.getUser(p.match.params.id)
-                .then((result) => {
-                    this.setState({ user: result })
-                })
-        }
-    }
-
-    render() {
-
-        const extra = (
-            <div>
-                <a className="float-left">
-                    <Button circular content={this.state.user.postsCount} color="teal" id="addButton" label="post(s)" />
-
-
-                </a>
-                <a className="float-right">
-                    <Button circular content={this.state.user.commentsCount} color="violet" id="addButton" label="comment(s)" />
-
-                </a>
-            </div>
-        )
-
-        return (
-            <React.Fragment>
-                <Grid>
-                    <Grid.Row>
-                        <Grid.Column width="4">
-                        </Grid.Column>
-                        <Grid.Column width="8">
-                        <ContainerExampleProfile />
-                            <Card centered fluid >
-                                {/* <Image style={{ width: 'inherit' }} src={this.state.user.avatarUrl} /> */}
-                                <Card.Content>
-                                    <ModalExampleScrollingContent />
-                                    <ProfileFormCard />
-                                    {/* <ContainerExampleAlignment /> */}
-                                    {/* <Card.Header className="float-left" size="large">{this.state.user.name}</Card.Header>
+    return (
+      <div>
+        <Grid>
+          <Grid.Row>
+            <Grid.Column width="4"></Grid.Column>
+            <Grid.Column width="8">
+              <ContainerExampleProfile />
+              <Card centered fluid>
+                {/* <Image style={{ width: 'inherit' }} src={this.state.user.avatarUrl} /> */}
+                <Card.Content>
+                  <ModalExampleScrollingContent />
+                  <ProfileFormCard />
+                  {/* <ContainerExampleAlignment /> */}
+                  {/* <Card.Header className="float-left" size="large">{this.state.user.name}</Card.Header>
                                     {(this.props.match.path === '/profile') ?
                                         <Button className="float-right" basic color="grey" size="mini" onClick={this.show('small')}>Edit profile</Button> :
                                         <React.Fragment />}
@@ -173,18 +177,30 @@ class ProfilePage extends Component {
                                 </Card.Content>
                                 <Card.Content extra>
                                     {extra} */}
-                                </Card.Content>
-                                {/* <InputExampleActionLabeledButton /> */}
-                            </Card>
-                        </Grid.Column>
-                        <Grid.Column width="4">
-                        </Grid.Column>
-                    </Grid.Row>
-                </Grid>
-                <ModalEdit modal={this.state.modal} nameLength={this.state.nameLength} close={this.close} handleInfoInput={this.handleInfoInput} handleImageInput={this.handleImageInput} handleNameInput={this.handleNameInput} sendEdit={this.sendEdit} errorUrl={this.state.errorUrl} errorLength={this.state.errorLength} validateUrl={this.validateUrl} imageUpload={this.handleImageUpload} onFormSubmit={this.onFormSubmit} />
-            </React.Fragment>
-        );
-    }
+                </Card.Content>
+                {/* <InputExampleActionLabeledButton /> */}
+              </Card>
+            </Grid.Column>
+            <Grid.Column width="4"></Grid.Column>
+          </Grid.Row>
+        </Grid>
+        <ModalEdit
+          modal={this.state.modal}
+          nameLength={this.state.nameLength}
+          close={this.close}
+          handleInfoInput={this.handleInfoInput}
+          handleImageInput={this.handleImageInput}
+          handleNameInput={this.handleNameInput}
+          sendEdit={this.sendEdit}
+          errorUrl={this.state.errorUrl}
+          errorLength={this.state.errorLength}
+          validateUrl={this.validateUrl}
+          imageUpload={this.handleImageUpload}
+          onFormSubmit={this.onFormSubmit}
+        />
+      </div>
+    );
+  }
 }
 
 export default ProfilePage;
